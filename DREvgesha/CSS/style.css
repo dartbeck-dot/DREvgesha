@@ -1,0 +1,320 @@
+/* Базовые настройки и цветовая палитра "Баня-Кедр" */
+:root {
+    --bg-dark: #9ceaf5;       /* Почти черный с зеленым отливом */
+    --wood-dark: #5c3b24;     /* Темное дерево */
+    --wood-light: #4a3525;    /* Светлое дерево для блоков */
+    --accent-fire: #ff6b35;   /* Огненный оранжевый для акцентов */
+    --accent-leaf: #4caf50;   /* Банный веник (зеленый) */
+    --text-light: #f4eedb;    /* Мягкий светлый текст */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: radial-gradient(circle at 50% 30%, #23392b 0%, var(--bg-dark) 70%);
+}
+
+/* Главный контейнер-карточка */
+.invitation-container {
+    background-color: var(--wood-dark);
+    border: 3px solid var(--accent-fire);
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 550px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 107, 53, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-container::before {
+    content: "🌿";
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.04;
+    top: -20px;
+    right: -20px;
+    transform: rotate(25deg);
+}
+
+/* Шапка сайта */
+.hero-section h1 {
+    color: var(--accent-fire);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    line-height: 1.5;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-leaf);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.main-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--accent-fire);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* Стилизация блоков информации и правил */
+.info-section, .rules-section {
+    background-color: var(--wood-light);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.info-section h2, .rules-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 8px;
+}
+
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+    line-height: 1.4;
+    font-size: 1.05rem;
+}
+
+.info-section li strong {
+    color: var(--accent-fire);
+}
+
+.rules-section li {
+    color: #ffb74d;
+}
+
+/* Интерактивная зона и кнопки */
+.action-section {
+    margin-top: 35px;
+}
+
+.question {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.buttons-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    min-height: 60px;
+    position: relative;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    border: none;
+    white-space: nowrap;
+}
+
+.btn-yes {
+    background-color: var(--accent-leaf);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    flex: 1;
+    max-width: 220px;
+}
+
+.btn-yes:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+.btn-no {
+    background-color: #e53935;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+    z-index: 10;
+}
+
+/* Класс, который JS добавляет кнопке при побеге */
+.btn-no.running {
+    position: fixed;
+    transition: all 0.1s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #8d8574;
+    line-height: 1.4;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 480px) {
+    .invitation-container {
+        padding: 25px 15px;
+    }
+    .hero-section h1 {
+        font-size: 1.6rem;
+    }
+    .buttons-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .btn {
+        width: 100%;
+        max-width: none;
+    }
+    /* Стили для ссылки "Список гостей" */
+.guest-list-container {
+    margin: 20px 0 30px;
+    text-align: center;
+}
+
+.guest-list-btn {
+    display: inline-block;
+    color: var(--accent-fire);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border: 1px dashed var(--accent-fire);
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.guest-list-btn:hover {
+    background-color: var(--accent-fire);
+    color: var(--wood-dark);
+    border-style: solid;
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+    transform: translateY(-2px);
+}
+
+}
+/* --- СТИЛИ ДЛЯ ТАЙМЕРА С СЕКУНДАМИ --- */
+.countdown-container {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px dashed var(--accent-fire);
+    border-radius: 14px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 440px; /* Немного расширили для секунд */
+}
+
+.countdown-title {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Слегка уменьшили зазор */
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 55px; /* Слегка уменьшили ширину */
+}
+
+.timer-item span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-fire);
+    text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+}
+
+.timer-item small {
+    font-size: 0.8rem;
+    color: var(--text-muted, #94a3b8);
+    margin-top: 2px;
+}
+
+/* --- СТИЛИ ДЛЯ БОКОВЫХ ФОТО (ЧАН И ПАРИЛКА) --- */
+
+/* Общие стили для боковых контейнеров */
+.side-picture {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 29%;          /* Картинки займут по 22% ширины экрана */
+    max-width: 300px;
+    height: 75vh;        /* Высота картинок */
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 107, 53, 0.4); /* Тонкая огненная рамка */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 1;          /* Уводим на задний план, чтобы карточка была сверху */
+    pointer-events: none; /* Чтобы картинки не мешали кликать по экрану */
+}
+
+/* Настройка самих изображений внутри контейнеров */
+.side-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Растягивает фото без искажения пропорций */
+    opacity: 0.7;         /* Делаем их чуть приглушенными, чтобы не отвлекали */
+}
+
+/* Позиция для парилки (слева) */
+.left-parilka {
+    left: 10%;
+}
+
+/* Позиция для чана (справа) */
+.right-chan {
+    right: 10%;
+}
+
+/* Отключаем картинки на планшетах и телефонах, так как там мало места */
+@media (max-width: 1200px) {
+    .side-picture {
+        display: none;
+    }
+}
+
